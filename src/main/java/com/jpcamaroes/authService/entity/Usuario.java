@@ -1,4 +1,4 @@
-package com.jpcamaroes.LoginService.entity;
+package com.jpcamaroes.authService.entity;
 
 
 import jakarta.persistence.Column;

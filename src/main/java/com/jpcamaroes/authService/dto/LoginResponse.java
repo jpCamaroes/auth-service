@@ -1,4 +1,4 @@
-package com.jpcamaroes.LoginService.dto;
+package com.jpcamaroes.authService.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

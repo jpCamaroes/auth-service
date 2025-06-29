@@ -1,4 +1,4 @@
-package com.jpcamaroes.LoginService.service;
+package com.jpcamaroes.authService.service;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -33,7 +33,7 @@ public class JwtService {
             Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(authToken);
             return true;
         } catch (Exception e) {
-            // Trate os diferentes tipos de erros de token aqui
+            // Aqui você pode logar o erro ou tratar tipos específicos de exceção, se desejar
         }
         return false;
     }

@@ -1,6 +1,6 @@
-package com.jpcamaroes.LoginService.repository;
+package com.jpcamaroes.authService.repository;
 
-import com.jpcamaroes.LoginService.entity.Usuario;
+import com.jpcamaroes.authService.entity.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

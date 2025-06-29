@@ -1,6 +1,7 @@
-package com.jpcamaroes.LoginService.config;
+package com.jpcamaroes.authService.config;
 
-import com.jpcamaroes.LoginService.service.UsuarioService;
+import com.jpcamaroes.authService.security.JwtAuthFilter;
+import com.jpcamaroes.authService.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,6 +12,7 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 @Configuration
 public class SecurityConfig {
@@ -18,14 +20,19 @@ public class SecurityConfig {
     @Autowired
     private UsuarioService usuarioService;
 
+    @Autowired
+    private JwtAuthFilter jwtAuthFilter;
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/login").permitAll() // libera apenas o login
-                        .anyRequest().authenticated()               // exige auth nos outros
-                );
+                        .requestMatchers("/auth/login").permitAll()
+                        .requestMatchers("/auth/validate").authenticated()
+                        .anyRequest().authenticated()
+                )
+                .addFilterBefore(jwtAuthFilter, BasicAuthenticationFilter.class);
         return http.build();
     }
 

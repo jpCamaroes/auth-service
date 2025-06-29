@@ -1,4 +1,4 @@
-package com.jpcamaroes.LoginService.config;
+package com.jpcamaroes.authService.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

@@ -1,7 +1,7 @@
-package com.jpcamaroes.LoginService.service;
+package com.jpcamaroes.authService.service;
 
-import com.jpcamaroes.LoginService.entity.Usuario;
-import com.jpcamaroes.LoginService.repository.UsuarioRepository;
+import com.jpcamaroes.authService.entity.Usuario;
+import com.jpcamaroes.authService.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
